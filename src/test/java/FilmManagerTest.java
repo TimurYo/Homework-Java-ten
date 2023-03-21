@@ -42,9 +42,20 @@ public class FilmManagerTest {
         test.addFilm("Lord of the Rings");
         test.addFilm("Avatar");
         test.addFilm("Founder");
+        test.addFilm("film 4");
+        test.addFilm("film 5");
+        test.addFilm("film 6");
+        test.addFilm("film 7");
+        test.addFilm("film 8");
+        test.addFilm("film 9");
+        test.addFilm("film 10");
+        test.addFilm("film 11");
+        test.addFilm("film 12");
+        test.addFilm("film 13");
+        test.addFilm("film 14");
 
 
-        String[] expected = {"Founder", "Avatar", "Lord of the Rings"};
+        String[] expected = {"film 14","film 13","film 12","film 11","film 10","film 9","film 8","film 7","film 6","film 5"};
         String[] actual = test.getLastFilms();
 
         Assertions.assertArrayEquals(expected, actual);

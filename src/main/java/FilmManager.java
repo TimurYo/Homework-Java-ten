@@ -1,40 +1,41 @@
 public class FilmManager {
-    private String[] films = new String[0];
+    private FilmRepository repo;
     private int limit;
 
-    public FilmManager() {
-        this.limit = 10;
+    public FilmManager (FilmRepository repo, int limit) {
+        this.repo = repo;
+        this.limit= limit;
+    }
+
+    public FilmManager(FilmRepository repo) {
+        this.limit = limit;
+        this.repo = repo;
     }
 
     public FilmManager(int limit) {
         this.limit = limit;
-
     }
 
-    public void addFilm(String film) {
-        String[] tmp = new String[films.length + 1];
-        for (int i = 0; i < films.length; i++) {
-            tmp[i] = films[i];
-        }
-        tmp[tmp.length - 1] = film;
-        films = tmp;
+    public void save(FilmsPoster film) {
+        repo.save(film);
     }
 
-    public String[] getAllFilms() {
-        return films;
-    }
+    public FilmsPoster[] getLastFilms() {
+        FilmsPoster[] all= repo.findAll();
 
-    public String[] getLastFilms() {
         int lastTenFilmsLength;
-        if (films.length < limit) {
-            lastTenFilmsLength = films.length;
+
+        if (all.length < limit) {
+            lastTenFilmsLength = all.length;
         } else {
             lastTenFilmsLength = limit;
         }
-        String[] lastTenFilms = new String[lastTenFilmsLength];
+
+        FilmsPoster[] lastTenFilms = new FilmsPoster[lastTenFilmsLength];
         for (int i = 0; i < lastTenFilms.length; i++) {
-            lastTenFilms[i] = films[films.length - 1 - i];
+            lastTenFilms[i] = all[all.length - 1 - i];
         }
+
         return lastTenFilms;
     }
 

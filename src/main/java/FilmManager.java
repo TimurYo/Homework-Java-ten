@@ -12,10 +12,6 @@ public class FilmManager {
         this.repo = repo;
     }
 
-    public FilmManager(int limit) {
-        this.limit = limit;
-    }
-
     public void save(FilmsPoster film) {
         repo.save(film);
     }

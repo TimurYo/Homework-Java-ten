@@ -18,8 +18,8 @@ public class FilmManagerTest {
     FilmsPoster film14 = new FilmsPoster(540,"film 14");
 
     FilmRepository repo = new FilmRepository();
-    FilmManager manager1 = new FilmManager(repo,10);
-    FilmManager manager2 = new FilmManager(repo);
+    FilmManager manager2 = new FilmManager(repo,10);
+    FilmManager manager1 = new FilmManager(repo);
 
     @Test
     public void saveAndFindAllTest() {
@@ -90,28 +90,28 @@ public class FilmManagerTest {
 
     }
 
-//    @Test
-//    public void filmManagerLastTenTestWithParam() {
-//        manager2.save(film1);
-//        manager2.save(film2);
-//        manager2.save(film3);
-//        manager2.save(film4);
-//        manager2.save(film5);
-//        manager2.save(film6);
-//        manager2.save(film7);
-//        manager2.save(film8);
-//        manager2.save(film9);
-//        manager2.save(film10);
-//        manager2.save(film11);
-//        manager2.save(film12);
-//        manager2.save(film13);
-//        manager2.save(film14);
-//
-//
-//        FilmsPoster[] expected = {film14, film13,film12,film11,film10,film9,film8,film7,film6,film5};
-//        FilmsPoster[] actual = manager2.getLastFilms();
-//
-//        Assertions.assertArrayEquals(expected, actual);
-//
-//    }
+    @Test
+    public void filmManagerLastTenTestWithParam() {
+        manager2.save(film1);
+        manager2.save(film2);
+        manager2.save(film3);
+        manager2.save(film4);
+        manager2.save(film5);
+        manager2.save(film6);
+        manager2.save(film7);
+        manager2.save(film8);
+        manager2.save(film9);
+        manager2.save(film10);
+        manager2.save(film11);
+        manager2.save(film12);
+        manager2.save(film13);
+        manager2.save(film14);
+
+
+        FilmsPoster[] expected = {film14, film13,film12,film11,film10,film9,film8,film7,film6,film5};
+        FilmsPoster[] actual = manager2.getLastFilms();
+
+        Assertions.assertArrayEquals(expected, actual);
+
+    }
 }

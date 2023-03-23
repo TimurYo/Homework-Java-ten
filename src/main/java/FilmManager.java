@@ -8,7 +8,7 @@ public class FilmManager {
     }
 
     public FilmManager(FilmRepository repo) {
-        this.limit = limit;
+        this.limit = 10;
         this.repo = repo;
     }
 

@@ -1,5 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.*;
 
 public class FilmManagerTest {
     FilmsPoster film1 = new FilmsPoster(525,"film 1");
@@ -17,7 +19,7 @@ public class FilmManagerTest {
     FilmsPoster film13 = new FilmsPoster(539,"film 13");
     FilmsPoster film14 = new FilmsPoster(540,"film 14");
 
-    FilmRepository repo = new FilmRepository();
+    FilmRepository repo = Mockito.mock(FilmRepository.class);
     FilmManager manager2 = new FilmManager(repo,10);
     FilmManager manager1 = new FilmManager(repo);
 
@@ -27,7 +29,6 @@ public class FilmManagerTest {
         repo.save(film1);
         repo.save(film2);
         repo.save(film3);
-
 
         FilmsPoster[] expected = {film1,film2,film3};
         FilmsPoster[] actual = repo.findAll();
@@ -78,9 +79,12 @@ public class FilmManagerTest {
 
     @Test
     public void filmManagerLastTenTestWithoutParam() {
-        manager1.save(film1);
-        manager1.save(film2);
-        manager1.save(film3);
+//        manager1.save(film1);
+//        manager1.save(film2);
+//        manager1.save(film3);
+
+        FilmsPoster[] films = {film1,film2,film3};
+        doReturn(films).when(repo).findAll();
 
 
         FilmsPoster[] expected = {film3,film2,film1};
@@ -92,20 +96,23 @@ public class FilmManagerTest {
 
     @Test
     public void filmManagerLastTenTestWithParam() {
-        manager2.save(film1);
-        manager2.save(film2);
-        manager2.save(film3);
-        manager2.save(film4);
-        manager2.save(film5);
-        manager2.save(film6);
-        manager2.save(film7);
-        manager2.save(film8);
-        manager2.save(film9);
-        manager2.save(film10);
-        manager2.save(film11);
-        manager2.save(film12);
-        manager2.save(film13);
-        manager2.save(film14);
+//        manager2.save(film1);
+//        manager2.save(film2);
+//        manager2.save(film3);
+//        manager2.save(film4);
+//        manager2.save(film5);
+//        manager2.save(film6);
+//        manager2.save(film7);
+//        manager2.save(film8);
+//        manager2.save(film9);
+//        manager2.save(film10);
+//        manager2.save(film11);
+//        manager2.save(film12);
+//        manager2.save(film13);
+//        manager2.save(film14); 
+
+        FilmsPoster[] films = {film1,film2,film3,film4,film5,film6,film7,film8,film9,film10,film11,film12,film13,film14};
+        doReturn(films).when(repo).findAll();
 
 
         FilmsPoster[] expected = {film14, film13,film12,film11,film10,film9,film8,film7,film6,film5};

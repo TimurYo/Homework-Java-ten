@@ -109,7 +109,7 @@ public class FilmManagerTest {
 //        manager2.save(film11);
 //        manager2.save(film12);
 //        manager2.save(film13);
-//        manager2.save(film14); 
+//        manager2.save(film14);
 
         FilmsPoster[] films = {film1,film2,film3,film4,film5,film6,film7,film8,film9,film10,film11,film12,film13,film14};
         doReturn(films).when(repo).findAll();

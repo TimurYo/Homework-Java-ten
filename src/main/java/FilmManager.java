@@ -2,9 +2,9 @@ public class FilmManager {
     private FilmRepository repo;
     private int limit;
 
-    public FilmManager (FilmRepository repo, int limit) {
+    public FilmManager(FilmRepository repo, int limit) {
         this.repo = repo;
-        this.limit= limit;
+        this.limit = limit;
     }
 
     public FilmManager(FilmRepository repo) {
@@ -12,12 +12,9 @@ public class FilmManager {
         this.repo = repo;
     }
 
-    public void save(FilmsPoster film) {
-        repo.save(film);
-    }
 
     public FilmsPoster[] getLastFilms() {
-        FilmsPoster[] all= repo.findAll();
+        FilmsPoster[] all = repo.findAll();
 
         int lastTenFilmsLength;
 
